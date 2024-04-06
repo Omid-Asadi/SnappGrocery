@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "221c529b-8bd6-47e4-a54a-8ee8332732f7",
+		"name": "Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{home}}/task/api/task-list",
+					"host": [
+						"{{home}}"
+					],
+					"path": [
+						"task",
+						"api",
+						"task-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"task-01\",\n    \"body\": \"desc-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{home}}/task/api/task/",
+					"host": [
+						"{{home}}"
+					],
+					"path": [
+						"task",
+						"api",
+						"task",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"task-03\",\n    \"body\": \"desc-03\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{home}}/task/api/task/1/",
+					"host": [
+						"{{home}}"
+					],
+					"path": [
+						"task",
+						"api",
+						"task",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

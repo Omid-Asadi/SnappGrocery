@@ -1,0 +1,3 @@
+
+IN_MEMORY = "IN_MEMORY"
+MAIN_DB = "MAIN_DB"

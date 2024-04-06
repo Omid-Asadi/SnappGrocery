@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ../nginx
+    container_name: nginx
+    volumes:
+      - static_volume:/var/www/todo/staticfiles
+      - media_volume:/var/www/todo/mediafiles
+    ports:
+      - 80:80
+    depends_on:
+      - todo
+
+  todo:
+    restart: always
+    build: .
+    image: todo:1.0
+    container_name: todo
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - todo_logs:/var/www/todo/logs
+      - static_volume:/var/www/todo/staticfiles
+      - media_volume:/var/www/todo/mediafiles
+    depends_on:
+      - redis
+      - db
+    links:
+      - redis
+
+volumes:
+  todo_logs:
+  static_volume:
+  media_volume:
+
+networks:
+    main-net:
+      name: main-net
+      driver: bridge
